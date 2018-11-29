@@ -30,6 +30,7 @@ class ProgrammerEditPresenter @Inject constructor(
             setUpEmacsValue(programmerRequest.emacs)
             setUpCaffeineValue(programmerRequest.caffeine)
         }
+        updateView()
 
     }
 
@@ -65,10 +66,6 @@ class ProgrammerEditPresenter @Inject constructor(
 
     fun caffeineChanged(newValue: Int) {
         programmerRequest.caffeine = newValue
-    }
-
-    fun caffeineLevelChanged(value: Int) {
-
     }
 
     override fun propertyChange(event: PropertyChangeEvent?) {

@@ -27,6 +27,7 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
 
 
     private var thisContext: Context? = null
+    private lateinit var favoriteCheckedChangeListener: CompoundButton.OnCheckedChangeListener
 
     @Inject
     lateinit var presenter: ProgrammerEditPresenter
@@ -79,7 +80,7 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
     override fun setUpFavorite(favorite: Boolean) {
         favorite_toggle_button_programmer_edit.setOnCheckedChangeListener(null)
         favorite_toggle_button_programmer_edit.isChecked = favorite
-//        favorite_toggle_button_programmer_edit.setOnCheckedChangeListener(favoriteCheckedChangeListener)
+        favorite_toggle_button_programmer_edit.setOnCheckedChangeListener(favoriteCheckedChangeListener)
     }
 
     override fun setUpEmacsValue(value: Int) {
@@ -100,13 +101,7 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
 
     override fun displayRealProgrammerRating(value: Int, colorCode: Int) {
 
-//        rpr_rating_bar_programmer_edit.setProgress(value, false)
-//
-//        if (thisContext != null) {
-//            rpr_rating_bar_programmer_edit.rating = (value + 1).toFloat()
-//            val stars = rpr_rating_bar_programmer_edit.progressDrawable as LayerDrawable
-//            stars.getDrawable(2).setColorFilter(ContextCompat.getColor(thisContext, thisContext.getColorId(colorCode)), PorterDuff.Mode.SRC_ATOP)
-//        }
+        //TODO: añadir funcionalidad
 
     }
 
@@ -115,9 +110,7 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
         prepareLastNameEditText()
         prepareFavoriteToggleButton()
         prepareEmacsSeekBar()
-//        prepareEmacsTextView()
         prepareCaffeineSeekBar()
-//        prepareCaffeineTextView()
 //        prepareRprRatingBar()
     }
 
@@ -137,7 +130,7 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
 
     private fun prepareFavoriteToggleButton() {
         val favoriteToggleButton = favorite_toggle_button_programmer_edit
-        val favoriteCheckedChangeListener = CompoundButton.OnCheckedChangeListener { _, value ->
+        favoriteCheckedChangeListener = CompoundButton.OnCheckedChangeListener { _, value ->
             presenter.favoriteChanged(value)
         }
         favoriteToggleButton.setOnCheckedChangeListener(favoriteCheckedChangeListener)
@@ -200,6 +193,7 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
             supportFragmentManager?.beginTransaction(
             )?.replace(container, fragmet)?.addToBackStack(fragmet.tag)?.commit()
         }
+
     }
 
 }
