@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">RealProgrammers</string>
+    <string name="title_activity_programmers_list">Programmers</string>
+    <string name="title_activity_programmer_edit">New Programmer</string>
+    <string name="title_activity_programmer_detail">Programmer</string>
+    <string name="name_title">Name</string>
+    <string name="emacs_title">Emacs Knowledge</string>
+    <string name="caffeine_title">Caffeine Ingestion</string>
+    <string name="rpr_title">Real Programmer Rating</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+    <string name="confirm_delete_programmer">Do you really want to delete this programmer info?</string>
+    <string name="confirm_title">Confirm deletion</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="confirm_discard_changes">Do you really want to discard the changes?</string>
+    <string name="dont_discard">Keep editing</string>
+    <string name="firstname_edit_text_hint_programmer_edit">Programmer\'s First Name</string>
+    <string name="lastname_edit_text_hint_programmer_edit">Programmer\'s Last Name</string>
+
+</resources>
