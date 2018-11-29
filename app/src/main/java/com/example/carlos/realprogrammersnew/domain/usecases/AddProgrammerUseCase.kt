@@ -9,16 +9,15 @@ import java.util.*
 import javax.inject.Inject
 
 class AddProgrammerUseCase @Inject constructor(
-    private val entitiyGateway: EntityGateway
+    private val entityGateway: EntityGateway
 ) {
 
     var presenter: ProgrammerEditPresenter? by WeakReferenceHolder()
 
 
-    //TODO: esto no se llama
     fun addProgrammer(programmerRequest: ProgrammerRequest) {
         programmerRequest.id = UUIDIdentityGenerator.generateId()
-        entitiyGateway.addProgrammer(programmerRequest.getProgrammer(Date()))
+        entityGateway.addProgrammer(programmerRequest.getProgrammer(Date()))
     }
 
 }

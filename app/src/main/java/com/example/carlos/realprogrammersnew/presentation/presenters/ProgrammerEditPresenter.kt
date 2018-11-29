@@ -72,5 +72,9 @@ class ProgrammerEditPresenter @Inject constructor(
         updateView()
     }
 
+    fun save() {
+        useCase.addProgrammer(programmerRequest)
+    }
+
 
 }

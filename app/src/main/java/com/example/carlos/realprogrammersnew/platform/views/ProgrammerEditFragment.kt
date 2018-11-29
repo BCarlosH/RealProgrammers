@@ -111,6 +111,7 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
         prepareFavoriteToggleButton()
         prepareEmacsSeekBar()
         prepareCaffeineSeekBar()
+        prepareSaveButton()
 //        prepareRprRatingBar()
     }
 
@@ -150,8 +151,16 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
         })
     }
 
+    private fun prepareSaveButton() {
+        save_programmer_button.setOnClickListener { save() }
+    }
+
     override fun enableSaveButton(enabled: Boolean) {
         save_programmer_button.isEnabled = enabled
+    }
+
+    private fun save() {
+        presenter.save()
     }
 
     private fun getEmacsLabel(value: Int): String {
