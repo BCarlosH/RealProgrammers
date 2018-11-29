@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:background="@color/colorAccent"
-        android:layout_marginBottom="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:background="@color/colorPrimary">
 
     <TextView
-            android:id="@+id/item_programmer_name_text_view"
-            tools:text="Name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/item_programmer_favorite_toggle_button"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginTop="@dimen/item_vertical_space"/>
+        android:id="@+id/item_programmer_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/item_vertical_space"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/item_programmer_favorite_toggle_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Name" />
 
     <TextView
-            android:id="@+id/item_programmer_date_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Today"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintTop_toBottomOf="@+id/item_programmer_name_text_view"
-            app:layout_constraintLeft_toLeftOf="@+id/item_programmer_name_text_view"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="@dimen/item_vertical_space"
-            android:layout_marginBottom="@dimen/item_vertical_space"
-            app:layout_constraintVertical_bias="0.0"/>
+        android:id="@+id/item_programmer_date_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_vertical_space"
+        android:layout_marginBottom="@dimen/item_vertical_space"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/item_programmer_name_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/item_programmer_name_text_view"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Today" />
 
     <ToggleButton
-            android:id="@+id/item_programmer_favorite_toggle_button"
-            style="@style/favoriteToggleButton"
-            android:background="@drawable/selector_favorite_toggle"
-            android:clickable="false"
-            android:layout_width="26dp"
-            android:layout_marginEnd="16dp"
-            android:layout_height="26dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        android:id="@+id/item_programmer_favorite_toggle_button"
+        style="@style/favoriteToggleButton"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/selector_favorite_toggle"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
