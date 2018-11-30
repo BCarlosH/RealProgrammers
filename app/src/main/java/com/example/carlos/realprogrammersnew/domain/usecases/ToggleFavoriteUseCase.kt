@@ -20,8 +20,4 @@ class ToggleFavoriteUseCase @Inject constructor(
         }
     }
 
-//    fun toggleFavouriteState(programmerId: String, isFavourite: Boolean) {
-//
-//    }
-
 }

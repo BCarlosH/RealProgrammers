@@ -73,11 +73,8 @@ class ProgrammerEditPresenter @Inject constructor(
     }
 
     fun save() {
-
         val useCaseFactory = useCaseFactory.addProgrammerUseCase(programmerRequest) {}
         useCaseFactory.execute()
-
-//        useCase.addProgrammer(programmerRequest)
     }
 
 

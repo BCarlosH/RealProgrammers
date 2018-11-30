@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
 import com.example.carlos.realprogrammersnew.R
 import com.example.carlos.realprogrammersnew.platform.ServiceLocator
 import com.example.carlos.realprogrammersnew.presentation.ProgrammerDetailView
@@ -22,6 +23,7 @@ class ProgrammerDetailFragment : Fragment(), ProgrammerDetailView {
     lateinit var presenter: ProgrammerDetailPresenter
 
     private lateinit var programmerId: String
+    private lateinit var favoriteCheckedChangeListener: CompoundButton.OnCheckedChangeListener
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,9 +44,14 @@ class ProgrammerDetailFragment : Fragment(), ProgrammerDetailView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        wireUpViews()
         assembleDaggerModule()
         presenter.viewReady()
 
+    }
+
+    private fun wireUpViews() {
+        prepareFavoriteToggleButton()
     }
 
     private fun assembleDaggerModule() {
@@ -54,6 +61,13 @@ class ProgrammerDetailFragment : Fragment(), ProgrammerDetailView {
         programmerDetailComponent.programmerId(programmerId)
         programmerDetailComponent.build().inject(this)
 
+    }
+
+    private fun prepareFavoriteToggleButton() {
+        favoriteCheckedChangeListener = CompoundButton.OnCheckedChangeListener { _, b ->
+            presenter.favoriteChanged(b)
+        }
+        favorite_toggle_button_programmer_detail.setOnCheckedChangeListener(favoriteCheckedChangeListener)
     }
 
     override fun displayFirstName(firstName: String) {

@@ -4,7 +4,7 @@ import com.example.carlos.realprogrammersnew.domain.EntityGateway
 import com.example.carlos.realprogrammersnew.domain.entities.Programmer
 import com.example.carlos.realprogrammersnew.helpers.WeakReferenceHolder
 
-class MemoryRepository(private val programmers: MutableList<Programmer>) : EntityGateway {
+class MemoryRepository(private var programmers: MutableList<Programmer>) : EntityGateway {
 
 
     private var observer: EntityGateway.Observer? by WeakReferenceHolder()
@@ -28,13 +28,13 @@ class MemoryRepository(private val programmers: MutableList<Programmer>) : Entit
     }
 
     override fun updateProgrammer(programmer: Programmer) {
-        programmers.map {
+        programmers = programmers.map {
             if (it.id == programmer.id) {
                 programmer
             } else {
                 it
             }
-        }
+        }.toMutableList()
     }
 
 }

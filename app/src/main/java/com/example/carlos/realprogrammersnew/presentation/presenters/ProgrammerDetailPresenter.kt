@@ -36,8 +36,10 @@ class ProgrammerDetailPresenter @Inject constructor(
         }
     }
 
-    fun toggleFavouriteState(programmerId: String, isFavourite: Boolean) {
 
+    fun favoriteChanged(isFavourite: Boolean) {
+        val useCaseFactory = useCaseFactory.toggleFavouriteStateUseCase(id, isFavourite) {}
+        useCaseFactory.execute()
     }
 
 

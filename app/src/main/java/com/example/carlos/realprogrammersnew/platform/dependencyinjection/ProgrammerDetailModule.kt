@@ -23,7 +23,4 @@ class ProgrammerDetailModule {
 
     }
 
-//    @Provides
-//    fun provideId() = id
-
 }
