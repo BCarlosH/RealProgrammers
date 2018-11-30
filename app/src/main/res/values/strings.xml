@@ -19,4 +19,7 @@
     <string name="firstname_edit_text_hint_programmer_edit">Programmer\'s First Name</string>
     <string name="lastname_edit_text_hint_programmer_edit">Programmer\'s Last Name</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

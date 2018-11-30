@@ -62,8 +62,11 @@ class ProgrammersListFragment : Fragment(), ProgrammersListView {
     }
 
     private fun onItemClick(id: String) {
-        //TODO: llamar al presenter
-        id
+        presenter.onProgrammerItemClick(id)
+    }
+
+    override fun navigateToDetail(id: String) {
+        ProgrammerDetailFragment.startFragment(id, activity?.supportFragmentManager, R.id.main_container)
     }
 
     override fun refreshView() {

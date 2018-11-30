@@ -5,8 +5,8 @@ import com.example.carlos.realprogrammersnew.presentation.ProgrammerEditView
 import dagger.BindsInstance
 import dagger.Subcomponent
 
-@Subcomponent(modules = [ProgrammerEditModule::class])
 @FragmentScope
+@Subcomponent(modules = [ProgrammerEditModule::class])
 interface ProgrammerEditComponent {
 
     fun inject(fragment: ProgrammerEditFragment)

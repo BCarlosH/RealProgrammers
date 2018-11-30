@@ -11,4 +11,6 @@ interface ApplicationComponent {
     fun entityGateWay(): EntityGateway
     fun programmersListComponentBuilder(): ProgrammerListComponent.Builder
     fun programmerEditComponentBuilder(): ProgrammerEditComponent.Builder
+    fun programmerDetailComponentBuilder(): ProgrammerDetailComponent.Builder
+
 }

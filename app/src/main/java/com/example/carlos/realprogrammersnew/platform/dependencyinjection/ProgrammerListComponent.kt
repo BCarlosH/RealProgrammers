@@ -5,8 +5,8 @@ import com.example.carlos.realprogrammersnew.presentation.ProgrammersListView
 import dagger.BindsInstance
 import dagger.Subcomponent
 
-@Subcomponent(modules = [ProgrammerListModule::class])
 @FragmentScope
+@Subcomponent(modules = [ProgrammerListModule::class])
 interface ProgrammerListComponent {
 
     fun inject(fragment: ProgrammersListFragment)

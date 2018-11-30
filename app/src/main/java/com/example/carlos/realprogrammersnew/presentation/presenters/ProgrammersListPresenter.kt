@@ -1,7 +1,6 @@
 package com.example.carlos.realprogrammersnew.presentation.presenters
 
 import com.example.carlos.realprogrammersnew.domain.EntityGateway
-import com.example.carlos.realprogrammersnew.domain.ProgrammerListPresentation
 import com.example.carlos.realprogrammersnew.domain.io.ProgrammerResponse
 import com.example.carlos.realprogrammersnew.domain.usecases.ShowProgrammersListUseCase
 import com.example.carlos.realprogrammersnew.helpers.WeakReferenceHolder
@@ -13,7 +12,7 @@ import javax.inject.Inject
 class ProgrammersListPresenter @Inject constructor(
     private val useCase: ShowProgrammersListUseCase
 ) :
-    ProgrammerListPresentation, EntityGateway.Observer {
+    EntityGateway.Observer {
 
 
     val numberOfProgrammers: Int
@@ -24,11 +23,11 @@ class ProgrammersListPresenter @Inject constructor(
     var view: ProgrammersListView? by WeakReferenceHolder()
 
 
-    override fun viewReady() {
+    fun viewReady() {
         useCase.showProgrammers()
     }
 
-    override fun configureRow(holder: ProgrammerListViewHolder, position: Int) {
+    fun configureRow(holder: ProgrammerListViewHolder, position: Int) {
         val programmerResponse = programmersList[position]
         holder.onItemClickListener(programmerResponse.id)
         holder.displayName(programmerResponse.name)
@@ -36,8 +35,12 @@ class ProgrammersListPresenter @Inject constructor(
         holder.displayFavourite(programmerResponse.favorite)
     }
 
-    override fun showProgramerResponses(list: List<ProgrammerResponse>) {
+    fun showProgrammerResponses(list: List<ProgrammerResponse>) {
         programmersList = list
+    }
+
+    fun onProgrammerItemClick(id: String) {
+        view?.navigateToDetail(id)
     }
 
     override fun notifyDataSetChanged() {

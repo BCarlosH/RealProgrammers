@@ -198,9 +198,9 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
 
         @JvmStatic
         fun startFragment(supportFragmentManager: FragmentManager?, container: Int) {
-            val fragmet = newInstance()
+            val fragment = newInstance()
             supportFragmentManager?.beginTransaction(
-            )?.replace(container, fragmet)?.addToBackStack(fragmet.tag)?.commit()
+            )?.replace(container, fragment)?.addToBackStack(fragment.tag)?.commit()
         }
 
     }

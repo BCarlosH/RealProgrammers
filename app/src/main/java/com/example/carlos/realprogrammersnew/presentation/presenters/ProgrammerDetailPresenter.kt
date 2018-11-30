@@ -1,10 +1,12 @@
 package com.example.carlos.realprogrammersnew.presentation.presenters
 
+import com.example.carlos.realprogrammersnew.domain.entities.Programmer
 import com.example.carlos.realprogrammersnew.domain.usecases.ShowProgrammerUseCase
 import com.example.carlos.realprogrammersnew.helpers.WeakReferenceHolder
 import com.example.carlos.realprogrammersnew.presentation.ProgrammerDetailView
+import javax.inject.Inject
 
-class ProgrammerDetailPresenter @javax.inject.Inject constructor(
+class ProgrammerDetailPresenter @Inject constructor(
     private val id: String,
     private val useCase: ShowProgrammerUseCase
 
@@ -12,6 +14,24 @@ class ProgrammerDetailPresenter @javax.inject.Inject constructor(
 
     var view: ProgrammerDetailView? by WeakReferenceHolder()
 
-    //TODO: llamar a la vista con los datos
+    lateinit var programmer: Programmer
+
+    fun viewReady() {
+        programmer = useCase.getProgrammer(id)!!
+        configureView(programmer)
+    }
+
+    private fun configureView(programmer: Programmer?) {
+        view?.apply {
+            displayFirstName(firstName = programmer?.firstName ?: "")
+            displayLastName(lastName = programmer?.lastName ?: "")
+            setUpFavorite(programmer?.favorite ?: false)
+            displayEmacs(emacsLabel = programmer?.emacs.toString())
+            displayCaffeine(caffeineLabel = programmer?.caffeine.toString())
+//            displayRealProgrammerRating(value = programmer?.realProgrammerRating?.ratingValue ?: RatingLevel.LOWEST,
+//                colorCode = programmer?.realProgrammerRating?.colorCode() ?: RatingLevel.COLOR_WORST)
+        }
+    }
+
 
 }

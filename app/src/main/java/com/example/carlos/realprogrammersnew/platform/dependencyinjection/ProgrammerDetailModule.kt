@@ -8,8 +8,7 @@ import dagger.Provides
 
 
 @Module
-class ProgrammerDetailModule(private val id: String) {
-
+class ProgrammerDetailModule {
 
     @Provides
     fun provideProgrammerDetailPresenter(
@@ -17,10 +16,15 @@ class ProgrammerDetailModule(private val id: String) {
         showProgrammerUseCase: ShowProgrammerUseCase,
         view: ProgrammerDetailView
     ): ProgrammerDetailPresenter {
+
         return ProgrammerDetailPresenter(id, showProgrammerUseCase).apply {
             this.view = view
             showProgrammerUseCase.presenter = this
         }
+
     }
+
+//    @Provides
+//    fun provideId() = id
 
 }

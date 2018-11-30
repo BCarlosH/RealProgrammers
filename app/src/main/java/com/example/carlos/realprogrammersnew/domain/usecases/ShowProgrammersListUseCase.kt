@@ -21,7 +21,7 @@ class ShowProgrammersListUseCase @Inject constructor(
         val responses = programmers.map { ProgrammerResponse(it) }
 
         // pasar datos al presenter
-        presenter?.showProgramerResponses(responses)
+        presenter?.showProgrammerResponses(responses)
 
     }
 

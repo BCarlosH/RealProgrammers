@@ -15,6 +15,10 @@ interface ProgrammerDetailComponent {
         @BindsInstance
         fun view(view: ProgrammerDetailView): Builder
 
+        @BindsInstance
+        fun programmerId(id: String)
+
         fun build(): ProgrammerDetailComponent
     }
+
 }

@@ -3,17 +3,19 @@ package com.example.carlos.realprogrammersnew.platform.app
 import android.app.Application
 import com.example.carlos.realprogrammersnew.domain.EntityGateway
 import com.example.carlos.realprogrammersnew.platform.ServiceLocator
-import com.example.carlos.realprogrammersnew.platform.dependencyinjection.ApplicationComponent
-import com.example.carlos.realprogrammersnew.platform.dependencyinjection.DaggerApplicationComponent
-import com.example.carlos.realprogrammersnew.platform.dependencyinjection.ProgrammerEditComponent
-import com.example.carlos.realprogrammersnew.platform.dependencyinjection.ProgrammerListComponent
+import com.example.carlos.realprogrammersnew.platform.dependencyinjection.*
 import javax.inject.Inject
+import javax.inject.Provider
 
 class RealProgrammersApplication : Application(), ServiceLocator {
 
 
     @Inject
     lateinit var entityGateway: EntityGateway
+
+    @Inject
+    lateinit var programmerDetailComponentProvider: Provider<ProgrammerDetailComponent.Builder>
+
 
     override fun onCreate() {
         super.onCreate()
@@ -27,6 +29,11 @@ class RealProgrammersApplication : Application(), ServiceLocator {
     override fun provideProgrammerEditComponentBuilder(): ProgrammerEditComponent.Builder {
         return appComponent.programmerEditComponentBuilder()
     }
+
+    override fun provideProgrammerDetailComponentBuilder(): ProgrammerDetailComponent.Builder {
+        return appComponent.programmerDetailComponentBuilder()
+    }
+
 
     companion object {
         lateinit var appComponent: ApplicationComponent
