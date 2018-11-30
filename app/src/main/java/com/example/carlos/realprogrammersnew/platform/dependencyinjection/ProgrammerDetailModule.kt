@@ -1,6 +1,6 @@
 package com.example.carlos.realprogrammersnew.platform.dependencyinjection
 
-import com.example.carlos.realprogrammersnew.domain.usecases.ShowProgrammerUseCase
+import com.example.carlos.realprogrammersnew.domain.UseCaseFactory
 import com.example.carlos.realprogrammersnew.presentation.ProgrammerDetailView
 import com.example.carlos.realprogrammersnew.presentation.presenters.ProgrammerDetailPresenter
 import dagger.Module
@@ -13,13 +13,12 @@ class ProgrammerDetailModule {
     @Provides
     fun provideProgrammerDetailPresenter(
         id: String,
-        showProgrammerUseCase: ShowProgrammerUseCase,
+        useCaseFactory: UseCaseFactory,
         view: ProgrammerDetailView
     ): ProgrammerDetailPresenter {
 
-        return ProgrammerDetailPresenter(id, showProgrammerUseCase).apply {
+        return ProgrammerDetailPresenter(id, useCaseFactory).apply {
             this.view = view
-            showProgrammerUseCase.presenter = this
         }
 
     }

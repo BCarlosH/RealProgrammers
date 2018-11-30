@@ -1,7 +1,7 @@
 package com.example.carlos.realprogrammersnew.presentation.presenters
 
+import com.example.carlos.realprogrammersnew.domain.UseCaseFactory
 import com.example.carlos.realprogrammersnew.domain.io.ProgrammerRequest
-import com.example.carlos.realprogrammersnew.domain.usecases.AddProgrammerUseCase
 import com.example.carlos.realprogrammersnew.helpers.WeakReferenceHolder
 import com.example.carlos.realprogrammersnew.presentation.ProgrammerEditView
 import java.beans.PropertyChangeEvent
@@ -9,7 +9,7 @@ import java.beans.PropertyChangeListener
 import javax.inject.Inject
 
 class ProgrammerEditPresenter @Inject constructor(
-    private val useCase: AddProgrammerUseCase
+    private val useCaseFactory: UseCaseFactory
 ) : PropertyChangeListener {
 
 
@@ -73,7 +73,11 @@ class ProgrammerEditPresenter @Inject constructor(
     }
 
     fun save() {
-        useCase.addProgrammer(programmerRequest)
+
+        val useCaseFactory = useCaseFactory.addProgrammerUseCase(programmerRequest) {}
+        useCaseFactory.execute()
+
+//        useCase.addProgrammer(programmerRequest)
     }
 
 

@@ -1,8 +1,8 @@
 package com.example.carlos.realprogrammersnew.presentation.presenters
 
 import com.example.carlos.realprogrammersnew.domain.EntityGateway
+import com.example.carlos.realprogrammersnew.domain.UseCaseFactory
 import com.example.carlos.realprogrammersnew.domain.io.ProgrammerResponse
-import com.example.carlos.realprogrammersnew.domain.usecases.ShowProgrammersListUseCase
 import com.example.carlos.realprogrammersnew.helpers.WeakReferenceHolder
 import com.example.carlos.realprogrammersnew.platform.views.ProgrammerListViewHolder
 import com.example.carlos.realprogrammersnew.presentation.ProgrammersListView
@@ -10,7 +10,7 @@ import com.example.carlos.realprogrammersnew.presentation.formatters.relativeStr
 import javax.inject.Inject
 
 class ProgrammersListPresenter @Inject constructor(
-    private val useCase: ShowProgrammersListUseCase
+    private val useCaseFactory: UseCaseFactory
 ) :
     EntityGateway.Observer {
 
@@ -24,7 +24,14 @@ class ProgrammersListPresenter @Inject constructor(
 
 
     fun viewReady() {
-        useCase.showProgrammers()
+        getProgrammersList()
+    }
+
+    private fun getProgrammersList() {
+        val useCaseFactory = useCaseFactory.showProgrammerListUseCase {
+            programmersList = it
+        }
+        useCaseFactory.execute()
     }
 
     fun configureRow(holder: ProgrammerListViewHolder, position: Int) {
@@ -44,7 +51,7 @@ class ProgrammersListPresenter @Inject constructor(
     }
 
     override fun notifyDataSetChanged() {
-        useCase.showProgrammers()
+        getProgrammersList()
         view?.refreshView()
     }
 

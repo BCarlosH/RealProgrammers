@@ -1,24 +1,25 @@
 package com.example.carlos.realprogrammersnew.presentation.presenters
 
+import com.example.carlos.realprogrammersnew.domain.UseCaseFactory
 import com.example.carlos.realprogrammersnew.domain.entities.Programmer
-import com.example.carlos.realprogrammersnew.domain.usecases.ShowProgrammerUseCase
 import com.example.carlos.realprogrammersnew.helpers.WeakReferenceHolder
 import com.example.carlos.realprogrammersnew.presentation.ProgrammerDetailView
 import javax.inject.Inject
 
 class ProgrammerDetailPresenter @Inject constructor(
     private val id: String,
-    private val useCase: ShowProgrammerUseCase
+    private val useCaseFactory: UseCaseFactory
 
 ) {
 
     var view: ProgrammerDetailView? by WeakReferenceHolder()
 
-    lateinit var programmer: Programmer
 
     fun viewReady() {
-        programmer = useCase.getProgrammer(id)!!
-        configureView(programmer)
+        val useCaseFactory = useCaseFactory.showProgrammerUseCase(id) {
+            configureView(it)
+        }
+        useCaseFactory.execute()
     }
 
     private fun configureView(programmer: Programmer?) {
