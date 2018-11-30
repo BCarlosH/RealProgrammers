@@ -8,6 +8,7 @@ interface EntityGateway {
     fun addProgrammer(programmer: Programmer)
     fun addProgrammersObserver(observer: Observer)
     fun getProgrammer(id: String): Programmer?
+    fun updateProgrammer(programmer: Programmer)
 
     interface Observer {
         fun notifyDataSetChanged()

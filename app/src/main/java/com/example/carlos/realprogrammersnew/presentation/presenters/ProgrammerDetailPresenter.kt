@@ -28,9 +28,15 @@ class ProgrammerDetailPresenter @Inject constructor(
             setUpFavorite(programmer?.favorite ?: false)
             displayEmacs(emacsLabel = programmer?.emacs.toString())
             displayCaffeine(caffeineLabel = programmer?.caffeine.toString())
+
+            //TODO: actualizar color del rating
 //            displayRealProgrammerRating(value = programmer?.realProgrammerRating?.ratingValue ?: RatingLevel.LOWEST,
 //                colorCode = programmer?.realProgrammerRating?.colorCode() ?: RatingLevel.COLOR_WORST)
         }
+    }
+
+    fun toggleFavouriteState(programmerId: String, isFavourite: Boolean) {
+
     }
 
 

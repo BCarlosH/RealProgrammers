@@ -27,5 +27,14 @@ class MemoryRepository(private val programmers: MutableList<Programmer>) : Entit
         }
     }
 
+    override fun updateProgrammer(programmer: Programmer) {
+        programmers.map {
+            if (it.id == programmer.id) {
+                programmer
+            } else {
+                it
+            }
+        }
+    }
 
 }
