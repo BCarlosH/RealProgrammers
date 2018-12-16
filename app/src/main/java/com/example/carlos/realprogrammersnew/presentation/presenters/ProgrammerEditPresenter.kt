@@ -40,8 +40,8 @@ class ProgrammerEditPresenter @Inject constructor(
             displayEmacs(emacsValue = programmerRequest.emacs)
             displayCaffeine(caffeineValue = programmerRequest.caffeine)
             displayRealProgrammerRating(
-                value = programmerRequest.realProgrammerRating,
-                colorCode = programmerRequest.realProgrammerRating
+                value = programmerRequest.realProgrammerRating.ratingValue,
+                colorCode = programmerRequest.realProgrammerRating.colorCode()
             )
             enableSaveButton(programmerRequest.isValid)
         }

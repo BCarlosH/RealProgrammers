@@ -1,14 +1,21 @@
 package com.example.carlos.realprogrammersnew.platform.views
 
+import android.content.Context
+import android.graphics.PorterDuff
+import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
+import com.example.carlos.realprogrammersnew.platform.helpers.getColorId
 import com.example.carlos.realprogrammersnew.R
 import com.example.carlos.realprogrammersnew.platform.ServiceLocator
+import com.example.carlos.realprogrammersnew.platform.helpers.getCaffeineLabel
+import com.example.carlos.realprogrammersnew.platform.helpers.getEmacsLabel
 import com.example.carlos.realprogrammersnew.presentation.ProgrammerDetailView
 import com.example.carlos.realprogrammersnew.presentation.presenters.ProgrammerDetailPresenter
 import kotlinx.android.synthetic.main.fragment_programmer_detail.*
@@ -22,6 +29,7 @@ class ProgrammerDetailFragment : Fragment(), ProgrammerDetailView {
     @Inject
     lateinit var presenter: ProgrammerDetailPresenter
 
+    private lateinit var activityContext: Context
     private lateinit var programmerId: String
     private lateinit var favoriteCheckedChangeListener: CompoundButton.OnCheckedChangeListener
 
@@ -82,16 +90,28 @@ class ProgrammerDetailFragment : Fragment(), ProgrammerDetailView {
         favorite_toggle_button_programmer_detail.isChecked = favorite
     }
 
-    override fun displayEmacs(emacsLabel: String) {
-        emacs_text_view_programmer_detail.text = emacsLabel
+    override fun displayEmacs(emacsValue: Int?) {
+        emacs_text_view_programmer_detail.text = getEmacsLabel(activityContext, emacsValue)
     }
 
-    override fun displayCaffeine(caffeineLabel: String) {
-        caffeine_text_view_programmer_detail.text = caffeineLabel
+    override fun displayCaffeine(caffeineValue: Int?) {
+        caffeine_text_view_programmer_detail.text = getCaffeineLabel(activityContext, caffeineValue)
     }
 
     override fun displayRealProgrammerRating(value: Int, colorCode: Int) {
-        //TODO: por hacer todo el sistema del rating
+        rpr_rating_bar_programmer_detail.rating = (value + 1).toFloat()
+        val stars = rpr_rating_bar_programmer_detail.progressDrawable as LayerDrawable
+        stars.getDrawable(2)
+            .setColorFilter(ContextCompat.getColor(activityContext, getColorId(colorCode)), PorterDuff.Mode.SRC_ATOP)
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+
+        context?.let {
+            activityContext = context
+        }
+
     }
 
 

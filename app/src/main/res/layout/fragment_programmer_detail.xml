@@ -82,6 +82,7 @@
                 android:id="@+id/emacs_text_view_programmer_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingBottom="24dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <!-- Caffeine Ingestion -->
@@ -95,6 +96,7 @@
                 android:id="@+id/caffeine_text_view_programmer_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingBottom="24dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <!-- Real Programmer Rating -->

@@ -1,9 +1,12 @@
 package com.example.carlos.realprogrammersnew.platform.views
 
 import android.content.Context
+import android.graphics.PorterDuff
+import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +15,7 @@ import com.example.carlos.realprogrammersnew.R
 import com.example.carlos.realprogrammersnew.helpers.Cancelable
 import com.example.carlos.realprogrammersnew.helpers.Confirmable
 import com.example.carlos.realprogrammersnew.platform.ServiceLocator
-import com.example.carlos.realprogrammersnew.platform.helpers.addTextChangedListener
-import com.example.carlos.realprogrammersnew.platform.helpers.setOnSeekBarChangeListener
+import com.example.carlos.realprogrammersnew.platform.helpers.*
 import com.example.carlos.realprogrammersnew.presentation.ProgrammerEditView
 import com.example.carlos.realprogrammersnew.presentation.presenters.ProgrammerEditPresenter
 import kotlinx.android.synthetic.main.fragment_add_programmer.*
@@ -26,7 +28,7 @@ import javax.inject.Inject
 class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
 
 
-    private var thisContext: Context? = null
+    private lateinit var activityContext: Context
     private lateinit var favoriteCheckedChangeListener: CompoundButton.OnCheckedChangeListener
 
     @Inject
@@ -88,7 +90,7 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
     }
 
     override fun displayEmacs(emacsValue: Int) {
-        emacs_text_view_programmer_edit.text = getEmacsLabel(emacsValue)
+        emacs_text_view_programmer_edit.text = getEmacsLabel(activityContext, emacsValue)
     }
 
     override fun setUpCaffeineValue(value: Int) {
@@ -96,12 +98,15 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
     }
 
     override fun displayCaffeine(caffeineValue: Int) {
-        caffeine_text_view_programmer_edit.text = getCaffeineLabel(caffeineValue)
+        caffeine_text_view_programmer_edit.text = getCaffeineLabel(activityContext, caffeineValue)
     }
 
     override fun displayRealProgrammerRating(value: Int, colorCode: Int) {
 
-        //TODO: añadir funcionalidad
+        rpr_rating_bar_programmer_edit.rating = (value + 1).toFloat()
+        val stars = rpr_rating_bar_programmer_edit.progressDrawable as LayerDrawable
+        stars.getDrawable(2)
+            .setColorFilter(ContextCompat.getColor(activityContext, getColorId(colorCode)), PorterDuff.Mode.SRC_ATOP)
 
     }
 
@@ -163,31 +168,13 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
         presenter.save()
     }
 
-    private fun getEmacsLabel(value: Int): String {
-        return when (value) {
-            0 -> "Cero"
-            1 -> "Uno"
-            2 -> "Dos"
-            3 -> "Tres"
-            4 -> "Cuatro"
-            else -> ""
-        }
-    }
-
-    private fun getCaffeineLabel(value: Int): String {
-        return when (value) {
-            0 -> "Very Bad"
-            1 -> "Bad"
-            2 -> "Works"
-            3 -> "Nice"
-            4 -> "Master"
-            else -> ""
-        }
-    }
-
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        thisContext = context
+
+        context?.let {
+            activityContext = context
+        }
+
     }
 
 

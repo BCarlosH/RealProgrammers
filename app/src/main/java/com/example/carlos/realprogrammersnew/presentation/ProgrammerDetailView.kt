@@ -5,8 +5,8 @@ interface ProgrammerDetailView {
     fun displayFirstName(firstName: String)
     fun displayLastName(lastName: String)
     fun setUpFavorite(favorite: Boolean)
-    fun displayEmacs(emacsLabel: String)
-    fun displayCaffeine(caffeineLabel: String)
+    fun displayEmacs(emacsValue: Int?)
+    fun displayCaffeine(caffeineValue: Int?)
     fun displayRealProgrammerRating(value: Int, colorCode: Int)
 
 }

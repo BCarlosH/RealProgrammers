@@ -19,7 +19,15 @@
     <string name="firstname_edit_text_hint_programmer_edit">Programmer\'s First Name</string>
     <string name="lastname_edit_text_hint_programmer_edit">Programmer\'s Last Name</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="emacs_lowest_value">Barely can close it</string>
+    <string name="emacs_low_value">Tutorial done</string>
+    <string name="emacs_medium_value">Customized .emacs</string>
+    <string name="emacs_high_value">Org-mode for everything</string>
+    <string name="emacs_highest_value">M-x butterfly</string>
+    <string name="caffeine_lowest_value">No coffee</string>
+    <string name="caffeine_low_value">A coffee in the morning</string>
+    <string name="caffeine_medium_value">Two or three coffees to get ready</string>
+    <string name="caffeine_high_value">A coffee every 3 hours</string>
+    <string name="caffeine_highest_value">Non stop drinking coffee</string>
 
 </resources>

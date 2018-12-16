@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Application colors -->
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryLight">#8FD7BD</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- Rating colors -->
+    <color name="colorWorst">#FC2430</color>
+    <color name="colorBad">#FD800A</color>
+    <color name="colorAverage">#FFAD3E</color>
+    <color name="colorGood">#98C3E7</color>
+    <color name="colorBest">#118302</color>
 </resources>

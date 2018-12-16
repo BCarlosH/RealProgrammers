@@ -4,6 +4,7 @@ import com.example.carlos.realprogrammersnew.data.MemoryRepository
 import com.example.carlos.realprogrammersnew.domain.EntityGateway
 import com.example.carlos.realprogrammersnew.domain.IdentityGenerator
 import com.example.carlos.realprogrammersnew.domain.entities.Programmer
+import com.example.carlos.realprogrammersnew.domain.entities.RatingLevel
 import com.example.carlos.realprogrammersnew.domain.services.UUIDIdentityGenerator
 import dagger.Module
 import dagger.Provides
@@ -23,26 +24,16 @@ class ApplicationModule {
     fun provideEntityGateWay(): EntityGateway {
 
         val list = mutableListOf(
-            Programmer("asdfasdf1", "Pepe", "Viñuela", 3, 4, 4, Date(), true),
-            Programmer("asdfasdf2", "Carlos", "el del al lado", 1, 2, 0, Date(), false),
-            Programmer("asdfasdf3", "Ignatius", "Farray", 2, 4, 1, Date(), false),
-            Programmer("asdfasdf4", "Mariano", "Rajoy", 4, 2, 3, Date(), true),
-            Programmer("asdfasdf5", "Julio", "Iglesias", 1, 2, 4, Date(), false),
-            Programmer("asdfasdf6", "Pepe", "Viñuela", 3, 4, 4, Date(), true),
-            Programmer("asdfasdf7", "Carlos", "el del al lado", 1, 2, 0, Date(), false),
-            Programmer("asdfasdf8", "Ignatius", "Farray", 2, 4, 1, Date(), false),
-            Programmer("asdfasdf9", "Mariano", "Rajoy", 4, 2, 3, Date(), true),
-            Programmer("asdfasdf10", "Julio", "Iglesias", 1, 2, 4, Date(), false),
-            Programmer("asdfasdf11", "Pepe", "Viñuela", 3, 4, 4, Date(), true),
-            Programmer("asdfasdf12", "Carlos", "el del al lado", 1, 2, 0, Date(), false),
-            Programmer("asdfasdf13", "Ignatius", "Farray", 2, 4, 1, Date(), false),
-            Programmer("asdfasdf14", "Mariano", "Rajoy", 4, 2, 3, Date(), true),
-            Programmer("asdfasdf15", "Julio", "Iglesias", 1, 2, 4, Date(), false),
-            Programmer("asdfasdf16", "Pepe", "Viñuela", 3, 4, 4, Date(), true),
-            Programmer("asdfasdf17", "Carlos", "el del al lado", 1, 2, 0, Date(), false),
-            Programmer("asdfasdf18", "Ignatius", "Farray", 2, 4, 1, Date(), false),
-            Programmer("asdfasdf19", "Mariano", "Rajoy", 4, 2, 3, Date(), true),
-            Programmer("asdfasdf20", "Julio", "Iglesias", 1, 2, 4, Date(), false)
+            Programmer("asdfasdf1", "Pepe", "Viñuela", 4, 4, RatingLevel(RatingLevel.HIGHEST), Date(), true),
+            Programmer("asdfasdf2", "Eugenio", "Jofra", 1, 1, RatingLevel(RatingLevel.LOW), Date(), false),
+            Programmer("asdfasdf3", "Ignatius", "Farray", 2, 4, RatingLevel(RatingLevel.HIGH), Date(), false),
+            Programmer("asdfasdf4", "Pedro", "Reyes", 4, 2, RatingLevel(RatingLevel.HIGH), Date(), true),
+            Programmer("asdfasdf5", "Miguel", "Noguera", 0, 0, RatingLevel(RatingLevel.LOWEST), Date(), false),
+            Programmer("asdfasdf6", "Bill", "Cosby", 1, 3, RatingLevel(RatingLevel.MEDIUM), Date(), true),
+            Programmer("asdfasdf7", "Rowan", "Atkinson", 3, 1, RatingLevel(RatingLevel.MEDIUM), Date(), false),
+            Programmer("asdfasdf8", "Andy", "Kaufman", 3, 3, RatingLevel(RatingLevel.HIGH), Date(), false),
+            Programmer("asdfasdf9", "Ernesto", "Sevilla", 4, 4, RatingLevel(RatingLevel.HIGHEST), Date(), true),
+            Programmer("asdfasdf10", "Joaquin", "Reyes", 2, 4, RatingLevel(RatingLevel.HIGH), Date(), false)
         )
 
         return MemoryRepository(list)

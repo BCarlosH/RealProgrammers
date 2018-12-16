@@ -18,7 +18,7 @@ import javax.inject.Inject
 class ProgrammersListFragment : Fragment(), ProgrammersListView {
 
 
-    private var thisContext: Context? = null
+    private var activityContext: Context? = null
 
     @Inject
     lateinit var presenter: ProgrammersListPresenter
@@ -51,12 +51,12 @@ class ProgrammersListFragment : Fragment(), ProgrammersListView {
     }
 
     private fun initAdapter() {
-        if (thisContext != null) {
+        if (activityContext != null) {
             recyclerView.apply {
                 adapter = ProgrammerListAdapter(presenter) {
                     onItemClick(it)
                 }
-                layoutManager = LinearLayoutManager(thisContext)
+                layoutManager = LinearLayoutManager(activityContext)
             }
         }
     }
@@ -75,7 +75,7 @@ class ProgrammersListFragment : Fragment(), ProgrammersListView {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        thisContext = context
+        activityContext = context
     }
 
 }

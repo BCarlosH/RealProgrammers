@@ -8,7 +8,7 @@ data class Programmer(
     val lastName: String,
     val emacs: Int,
     val caffeine: Int,
-    val realProgrammerRating: Int,
+    val realProgrammerRating: RatingLevel,
     val interviewDate: Date,
     val favorite: Boolean
 ) {
