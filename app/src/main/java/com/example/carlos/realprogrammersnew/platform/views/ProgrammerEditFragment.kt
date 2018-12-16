@@ -63,8 +63,7 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
         alert("perderás los datos, estas seguro") {
             title = "Cerrar"
             yesButton {
-                val confirmableActivity = activity as? Confirmable
-                confirmableActivity?.confirm()
+                callConfirm()
             }
             noButton { }
         }.show()
@@ -166,6 +165,12 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
 
     private fun save() {
         presenter.save()
+        callConfirm()
+    }
+
+    private fun callConfirm() {
+        val confirmableActivity = activity as? Confirmable
+        confirmableActivity?.confirm()
     }
 
     override fun onAttach(context: Context?) {
