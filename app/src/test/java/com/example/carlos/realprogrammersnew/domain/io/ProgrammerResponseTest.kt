@@ -32,7 +32,7 @@ class ProgrammerResponseTest {
     fun nameIsExtractedFromMainProgrammer() {
         programmerResponse = ProgrammerResponse(programmer = TestData.createMainProgrammer())
 
-        assertEquals(TestData.mainFullName, programmerResponse.name)
+        assertEquals(TestData.mainFirstName, programmerResponse.name)
     }
 
     @Test
