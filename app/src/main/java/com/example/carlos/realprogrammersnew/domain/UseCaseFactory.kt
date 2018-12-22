@@ -28,7 +28,7 @@ class UseCaseFactory @Inject constructor(private val entityGateway: EntityGatewa
         programmerRequest: ProgrammerRequest,
         completion: handler<Unit>
     ): UseCase {
-        return AddProgrammerUseCase(entityGateway, completion, programmerRequest)
+        return AddProgrammerUseCase(entityGateway, programmerRequest, completion)
     }
 
     fun toggleFavouriteStateUseCase(
@@ -36,7 +36,7 @@ class UseCaseFactory @Inject constructor(private val entityGateway: EntityGatewa
         isFavourite: Boolean,
         completion: handler<Unit>
     ): UseCase {
-        return ToggleFavoriteUseCase(entityGateway, completion, programmerId, isFavourite)
+        return ToggleFavoriteUseCase(entityGateway, programmerId, isFavourite, completion)
     }
 
 }

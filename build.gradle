@@ -32,7 +32,8 @@ ext {
     dagger_2_version = '2.19'
     anko_version = '0.10.8'
     junit_version = '4.12'
-    mockito_version = '2.15.0'
+    mockito_version = '2.23.4'
+    mockitokotlin_version = '2.0.0'
     android_support_test_runner_version = '1.0.2'
     android_support_test_espresso_version = '3.0.2'
 }

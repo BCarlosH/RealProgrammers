@@ -7,9 +7,9 @@ import javax.inject.Inject
 
 class ToggleFavoriteUseCase @Inject constructor(
     private val entityGateway: EntityGateway,
-    private val completion: handler<Unit>,
     private val programmerId: String,
-    private val isFavourite: Boolean
+    private val isFavourite: Boolean,
+    private val completion: handler<Unit>
 ) : UseCase {
 
     override fun execute() {

@@ -10,8 +10,8 @@ import javax.inject.Inject
 
 class AddProgrammerUseCase @Inject constructor(
     private val entityGateway: EntityGateway,
-    private val completion: handler<Unit>,
-    private val programmerRequest: ProgrammerRequest
+    private val programmerRequest: ProgrammerRequest,
+    private val completion: handler<Unit>
 ) : UseCase {
 
     override fun execute() {

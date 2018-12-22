@@ -15,7 +15,7 @@ data class ProgrammerResponse(
 ) {
 
     constructor(programmer: Programmer) : this(
-        id = programmer.id, name = programmer.fullName, lastName = programmer.lastName,
+        id = programmer.id, name = programmer.firstName, lastName = programmer.lastName,
         interviewDate = programmer.interviewDate, favorite = programmer.favorite
     )
 
