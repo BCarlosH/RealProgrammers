@@ -7,8 +7,6 @@ import com.example.carlos.realprogrammersnew.helpers.WeakReferenceHolder
 class MemoryRepository(private var programmers: MutableList<Programmer>) : EntityGateway {
 
 
-    private var observer: EntityGateway.Observer? by WeakReferenceHolder()
-
     override fun addProgrammersObserver(observer: EntityGateway.Observer) {
         observer.notifyDataSetChanged()
     }
