@@ -11,10 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
-import com.example.carlos.realprogrammersnew.platform.helpers.getColorId
 import com.example.carlos.realprogrammersnew.R
 import com.example.carlos.realprogrammersnew.platform.ServiceLocator
 import com.example.carlos.realprogrammersnew.platform.helpers.getCaffeineLabel
+import com.example.carlos.realprogrammersnew.platform.helpers.getColorId
 import com.example.carlos.realprogrammersnew.platform.helpers.getEmacsLabel
 import com.example.carlos.realprogrammersnew.presentation.ProgrammerDetailView
 import com.example.carlos.realprogrammersnew.presentation.presenters.ProgrammerDetailPresenter

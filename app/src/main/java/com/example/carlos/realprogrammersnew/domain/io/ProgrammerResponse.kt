@@ -9,9 +9,6 @@ data class ProgrammerResponse(
     var lastName: String,
     val interviewDate: Date,
     val favorite: Boolean
-//    val emacsValue: Int,
-//    val caffeineValue: Int,
-//    val realProgrammingRate: Int
 ) {
 
     constructor(programmer: Programmer) : this(

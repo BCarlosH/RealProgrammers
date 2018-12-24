@@ -13,13 +13,9 @@ class ShowProgrammersListUseCase @Inject constructor(
 ) : UseCase {
 
     override fun execute() {
-        // get data
+
         val programmers = entityGateway.fetchProgrammers()
-
-        // transformar datos
         val responses = programmers.map { ProgrammerResponse(it) }
-
-        // pasar datos al presenter
         completion(responses)
     }
 

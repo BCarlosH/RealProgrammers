@@ -60,8 +60,8 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
 
     override fun onCancel() {
 
-        alert("perderás los datos, estas seguro") {
-            title = "Cerrar"
+        alert(getString(R.string.confirm_discard_changes)) {
+            title = getString(R.string.confirm_title)
             yesButton {
                 callConfirm()
             }
@@ -116,7 +116,6 @@ class ProgrammerEditFragment : Fragment(), Cancelable, ProgrammerEditView {
         prepareEmacsSeekBar()
         prepareCaffeineSeekBar()
         prepareSaveButton()
-//        prepareRprRatingBar()
     }
 
     private fun prepareFirstNameEditText() {

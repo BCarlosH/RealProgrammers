@@ -42,10 +42,6 @@ class ProgrammersListPresenter @Inject constructor(
         holder.displayFavourite(programmerResponse.favorite)
     }
 
-    fun showProgrammerResponses(list: List<ProgrammerResponse>) {
-        programmersList = list
-    }
-
     fun onProgrammerItemClick(id: String) {
         view?.navigateToDetail(id)
     }

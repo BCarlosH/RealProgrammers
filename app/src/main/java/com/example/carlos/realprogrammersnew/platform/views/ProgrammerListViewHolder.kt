@@ -2,7 +2,6 @@ package com.example.carlos.realprogrammersnew.platform.views
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.example.carlos.realprogrammersnew.domain.io.ProgrammerResponse
 import com.example.carlos.realprogrammersnew.presentation.ProgrammerItemView
 import kotlinx.android.synthetic.main.view_programmer_item.view.*
 

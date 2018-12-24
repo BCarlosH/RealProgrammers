@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.carlos.realprogrammersnew.R
-import com.example.carlos.realprogrammersnew.domain.io.ProgrammerResponse
 import com.example.carlos.realprogrammersnew.presentation.presenters.ProgrammersListPresenter
 
 class ProgrammerListAdapter(
