@@ -1,4 +1,4 @@
-# RealProgrammersNew
+# RealProgrammers
 A sample Android app of Clean Architecture
 
 I made this app in an Advanced mobile apps Architecture course taught by Jorge D. Ortiz Fuentes.
